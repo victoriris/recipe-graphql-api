@@ -12,7 +12,7 @@ model Recipe {
   name        String
   content     String
   ingredients Ingredient[]
-  rating      Rating[]
+  ratings      Rating[]
   updatedAt   DateTime     @default(now()) @updatedAt
   createdAt   DateTime     @default(now())
 }

@@ -7,7 +7,7 @@ export const Recipe = objectType({
 		t.model.name();
 		t.model.content();
 		t.model.ingredients();
-		t.model.rating();
+		t.model.ratings();
 		t.model.updatedAt();
 		t.model.createdAt();
 	},

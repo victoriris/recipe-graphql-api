@@ -58,7 +58,7 @@ type Rating {
 input RatingCreateInput {
   comment: String!
   createdAt: DateTime
-  recipe: RecipeCreateOneWithoutRatingInput!
+  recipe: RecipeCreateOneWithoutRatingsInput!
   score: Int!
 }
 
@@ -89,7 +89,7 @@ type Recipe {
   id: String!
   ingredients(cursor: IngredientWhereUniqueInput, skip: Int, take: Int): [Ingredient!]!
   name: String!
-  rating(cursor: RatingWhereUniqueInput, skip: Int, take: Int): [Rating!]!
+  ratings(cursor: RatingWhereUniqueInput, skip: Int, take: Int): [Rating!]!
   updatedAt: DateTime!
 }
 
@@ -99,7 +99,7 @@ input RecipeCreateInput {
   id: String
   ingredients: IngredientCreateManyWithoutRecipesInput
   name: String!
-  rating: RatingCreateManyWithoutRecipeInput
+  ratings: RatingCreateManyWithoutRecipeInput
   updatedAt: DateTime
 }
 
@@ -109,10 +109,10 @@ input RecipeCreateManyWithoutIngredientsInput {
   create: [RecipeCreateWithoutIngredientsInput!]
 }
 
-input RecipeCreateOneWithoutRatingInput {
+input RecipeCreateOneWithoutRatingsInput {
   connect: RecipeWhereUniqueInput
-  connectOrCreate: RecipeCreateOrConnectWithoutratingInput
-  create: RecipeCreateWithoutRatingInput
+  connectOrCreate: RecipeCreateOrConnectWithoutratingsInput
+  create: RecipeCreateWithoutRatingsInput
 }
 
 input RecipeCreateOrConnectWithoutingredientsInput {
@@ -120,8 +120,8 @@ input RecipeCreateOrConnectWithoutingredientsInput {
   where: RecipeWhereUniqueInput!
 }
 
-input RecipeCreateOrConnectWithoutratingInput {
-  create: RecipeCreateWithoutRatingInput!
+input RecipeCreateOrConnectWithoutratingsInput {
+  create: RecipeCreateWithoutRatingsInput!
   where: RecipeWhereUniqueInput!
 }
 
@@ -130,11 +130,11 @@ input RecipeCreateWithoutIngredientsInput {
   createdAt: DateTime
   id: String
   name: String!
-  rating: RatingCreateManyWithoutRecipeInput
+  ratings: RatingCreateManyWithoutRecipeInput
   updatedAt: DateTime
 }
 
-input RecipeCreateWithoutRatingInput {
+input RecipeCreateWithoutRatingsInput {
   content: String!
   createdAt: DateTime
   id: String
