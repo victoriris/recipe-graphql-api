@@ -43,6 +43,8 @@ type Mutation {
 }
 
 type Query {
+  """Get the best rated recipe"""
+  bestRecipe: Recipe
   ingredients(cursor: IngredientWhereUniqueInput, skip: Int, take: Int): [Ingredient!]!
   recipe(where: RecipeWhereUniqueInput!): Recipe
   recipes(cursor: RecipeWhereUniqueInput, skip: Int, take: Int): [Recipe!]!
